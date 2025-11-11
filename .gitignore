@@ -1,0 +1,27 @@
+Este archivo le dice a Git qué archivos ignorar
+
+Ignorar el archivo .env
+
+.env
+
+Ignorar el entorno virtual de Python
+
+/venv/
+
+Ignorar la base de datos local
+
+*.sqlite3
+
+Ignorar los archivos .pyc compilados
+
+pycache/
+*.pyc
+
+Ignorar archivos del editor VS Code
+
+.vscode/
+
+Ignorar archivos de sistema (Mac/Windows)
+
+.DS_Store
+Thumbs.db
