@@ -31,6 +31,10 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS'), '.onrender.com', '127.0.0.1', 'localhost']
 
+render_host = os.environ.get('ALLOWED_HOSTS')
+if render_host:
+    ALLOWED_HOSTS.append(render_host)
+
 
 # Application definition
 
@@ -82,7 +86,10 @@ WSGI_APPLICATION = 'peakmedia_config.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600
+    )
 }
 
 
@@ -108,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
